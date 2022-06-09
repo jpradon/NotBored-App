@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		864089AC28522F3F00AB4EE6 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864089AB28522F3F00AB4EE6 /* Activity.swift */; };
+		864089AE2852300C00AB4EE6 /* ActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864089AD2852300C00AB4EE6 /* ActivityManager.swift */; };
+		864089B02852301B00AB4EE6 /* ActivityManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864089AF2852301B00AB4EE6 /* ActivityManagerProtocol.swift */; };
+		864089B3285232AC00AB4EE6 /* CategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864089B2285232AC00AB4EE6 /* CategoryType.swift */; };
 		86D7A9662851496800D8826F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D7A9652851496800D8826F /* AppDelegate.swift */; };
 		86D7A9682851496800D8826F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D7A9672851496800D8826F /* SceneDelegate.swift */; };
 		86D7A96A2851496800D8826F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D7A9692851496800D8826F /* ViewController.swift */; };
@@ -17,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		864089AB28522F3F00AB4EE6 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		864089AD2852300C00AB4EE6 /* ActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityManager.swift; sourceTree = "<group>"; };
+		864089AF2852301B00AB4EE6 /* ActivityManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityManagerProtocol.swift; sourceTree = "<group>"; };
+		864089B2285232AC00AB4EE6 /* CategoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryType.swift; sourceTree = "<group>"; };
 		86D7A9622851496800D8826F /* NotBored-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NotBored-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D7A9652851496800D8826F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86D7A9672851496800D8826F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +47,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		864089A928522D9B00AB4EE6 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				864089AD2852300C00AB4EE6 /* ActivityManager.swift */,
+				864089AF2852301B00AB4EE6 /* ActivityManagerProtocol.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		864089AA28522DAF00AB4EE6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				864089AB28522F3F00AB4EE6 /* Activity.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		864089B12852325100AB4EE6 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				864089B2285232AC00AB4EE6 /* CategoryType.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 		86D7A9592851496800D8826F = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +91,9 @@
 		86D7A9642851496800D8826F /* NotBored-App */ = {
 			isa = PBXGroup;
 			children = (
+				864089B12852325100AB4EE6 /* Enum */,
+				864089AA28522DAF00AB4EE6 /* Model */,
+				864089A928522D9B00AB4EE6 /* Manager */,
 				86D7A98528515E9A00D8826F /* Controller */,
 				86D7A9652851496800D8826F /* AppDelegate.swift */,
 				86D7A9672851496800D8826F /* SceneDelegate.swift */,
@@ -149,9 +185,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				864089AC28522F3F00AB4EE6 /* Activity.swift in Sources */,
 				86D7A96A2851496800D8826F /* ViewController.swift in Sources */,
+				864089AE2852300C00AB4EE6 /* ActivityManager.swift in Sources */,
 				86D7A98728515EE700D8826F /* RecommendationViewController.swift in Sources */,
 				86D7A9662851496800D8826F /* AppDelegate.swift in Sources */,
+				864089B3285232AC00AB4EE6 /* CategoryType.swift in Sources */,
+				864089B02852301B00AB4EE6 /* ActivityManagerProtocol.swift in Sources */,
 				86D7A9682851496800D8826F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

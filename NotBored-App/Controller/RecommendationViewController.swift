@@ -13,8 +13,20 @@ class RecommendationViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setup()
     }
     
+    func setup() {
+        let activityManager = ActivityManager.shared
+        
+        let price = activityManager.activity.price ?? 0
+        
+        print("participants: \(activityManager.activity.participants)")
+        print("price       : \(price)")
+        print("category    : \(activityManager.activity.category)")
+        print("random      : \(activityManager.activity.random)")
+        
+    }
 
     /*
     // MARK: - Navigation
