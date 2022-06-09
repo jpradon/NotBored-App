@@ -11,6 +11,7 @@
 		864089AE2852300C00AB4EE6 /* ActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864089AD2852300C00AB4EE6 /* ActivityManager.swift */; };
 		864089B02852301B00AB4EE6 /* ActivityManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864089AF2852301B00AB4EE6 /* ActivityManagerProtocol.swift */; };
 		864089B3285232AC00AB4EE6 /* CategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864089B2285232AC00AB4EE6 /* CategoryType.swift */; };
+		864089B52852A5EF00AB4EE6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864089B42852A5EE00AB4EE6 /* HomeViewController.swift */; };
 		86D7A9662851496800D8826F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D7A9652851496800D8826F /* AppDelegate.swift */; };
 		86D7A9682851496800D8826F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D7A9672851496800D8826F /* SceneDelegate.swift */; };
 		86D7A96A2851496800D8826F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D7A9692851496800D8826F /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 		864089AD2852300C00AB4EE6 /* ActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityManager.swift; sourceTree = "<group>"; };
 		864089AF2852301B00AB4EE6 /* ActivityManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityManagerProtocol.swift; sourceTree = "<group>"; };
 		864089B2285232AC00AB4EE6 /* CategoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryType.swift; sourceTree = "<group>"; };
+		864089B42852A5EE00AB4EE6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		86D7A9622851496800D8826F /* NotBored-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NotBored-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D7A9652851496800D8826F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86D7A9672851496800D8826F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				86D7A98628515EE700D8826F /* RecommendationViewController.swift */,
+				864089B42852A5EE00AB4EE6 /* HomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				864089AE2852300C00AB4EE6 /* ActivityManager.swift in Sources */,
 				86D7A98728515EE700D8826F /* RecommendationViewController.swift in Sources */,
 				86D7A9662851496800D8826F /* AppDelegate.swift in Sources */,
+				864089B52852A5EF00AB4EE6 /* HomeViewController.swift in Sources */,
 				864089B3285232AC00AB4EE6 /* CategoryType.swift in Sources */,
 				864089B02852301B00AB4EE6 /* ActivityManagerProtocol.swift in Sources */,
 				86D7A9682851496800D8826F /* SceneDelegate.swift in Sources */,

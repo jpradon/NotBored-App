@@ -8,15 +8,20 @@
 import UIKit
 
 class RecommendationViewController: UIViewController {
+    
+    var participante: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setup()
+        
     }
     
     func setup() {
+        
+        print("participante: \(participante)")
         let activityManager = ActivityManager.shared
         
         // seleccione una categoria
