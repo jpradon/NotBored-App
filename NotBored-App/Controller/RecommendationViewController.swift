@@ -19,6 +19,15 @@ class RecommendationViewController: UIViewController {
     func setup() {
         let activityManager = ActivityManager.shared
         
+        // seleccione una categoria
+        activityManager.activity.category = .cooking
+        activityManager.activity.random = false
+        
+        // seleccione random
+        //activityManager.activity.category = .none
+        //activityManager.activity.random = true
+        
+        
         let price = activityManager.activity.price ?? 0
         
         print("participants: \(activityManager.activity.participants)")
