@@ -20,14 +20,24 @@ class HomeViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueHometoRecommendation" {
-            if let controller = segue.destination as? RecommendationViewController {
-                controller.participante = "20"
+        switch segue.identifier {
+        case "segueHomeToRecommendationCategory":
+            if let controllerRecomendation = segue.destination as? RecommendationViewController {
+                controllerRecomendation.participante = "20"
+                controllerRecomendation.random = false
+                controllerRecomendation.category = .education
             }
-            
-            UserDefaults.standard.set(true, forKey: "checkTerm")
-            
+        case "segueHomeToRecommendationRandom":
+            if let controllerRecomendation = segue.destination as? RecommendationViewController {
+                controllerRecomendation.participante = "20"
+                controllerRecomendation.random = true
+                controllerRecomendation.category = .none
+            }
+        default:
+            print("segue no identificado")
         }
+        
+        UserDefaults.standard.set(true, forKey: "checkTerm")
         
         
             

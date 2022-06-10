@@ -10,6 +10,8 @@ import UIKit
 class RecommendationViewController: UIViewController {
     
     var participante: String = ""
+    var category: CategoryType = .none
+    var random: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,24 +24,16 @@ class RecommendationViewController: UIViewController {
     func setup() {
         
         print("participante: \(participante)")
-        let activityManager = ActivityManager.shared
+        print("category: \(category)")
+        print("random: \(random)")
         
-        // seleccione una categoria
-        activityManager.activity.category = .cooking
-        activityManager.activity.random = false
-        
-        // seleccione random
-        //activityManager.activity.category = .none
-        //activityManager.activity.random = true
-        
-        
-        let price = activityManager.activity.price ?? 0
-        
-        print("participants: \(activityManager.activity.participants)")
-        print("price       : \(price)")
-        print("category    : \(activityManager.activity.category)")
-        print("random      : \(activityManager.activity.random)")
-        
+//        let activityManager = ActivityManager.shared
+//        let price = activityManager.activity.price ?? 0
+//
+//        print("participants: \(activityManager.activity.participants)")
+//        print("price       : \(price)")
+//        print("category    : \(activityManager.activity.category)")
+//        print("random      : \(activityManager.activity.random)")
     }
 
     /*
