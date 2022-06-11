@@ -12,7 +12,7 @@ class Params {
     // MARK: Properties
     var participants: Int
     var price: Double?
-    var category: CategoryType = .none
+    var category: CategoryType = .random
     var random: Bool = false
 
     // MARK: Inits

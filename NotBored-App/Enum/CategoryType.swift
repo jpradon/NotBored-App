@@ -7,8 +7,17 @@
 
 import Foundation
 
-enum CategoryType {
+enum CategoryType: String {
     
-    case none, education, recreational, social, diy, charity, cooking, relaxation, music, busywork
+    case random = "Aleatorio",
+         education = "Educación",
+         recreational = "Recreacional",
+         social = "Social",
+         diy = "Bricolaje",
+         charity = "Caridad",
+         cooking = "Cocina",
+         relaxation = "Relajación",
+         music = "Música",
+         busywork = "Trabajo"
     
 }

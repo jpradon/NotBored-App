@@ -26,7 +26,7 @@ class RecommendationViewController: UIViewController {
     
     
     var participante: String = ""
-    var category: CategoryType = .none
+    var category: CategoryType = .random
     var random: Bool = false
 
     override func viewDidLoad() {
@@ -39,6 +39,9 @@ class RecommendationViewController: UIViewController {
     
     func setup() {
         
+
+        self.title = category.rawValue
+
         print("participante: \(participante)")
         print("category: \(category)")
         print("random: \(random)")
