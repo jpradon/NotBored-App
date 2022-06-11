@@ -31,7 +31,8 @@ class HomeViewController: UIViewController {
             if let controllerRecomendation = segue.destination as? RecommendationViewController {
                 controllerRecomendation.participante = "20"
                 controllerRecomendation.random = true
-                controllerRecomendation.category = .none
+                controllerRecomendation.category = .random
+               
             }
         default:
             print("segue no identificado")
