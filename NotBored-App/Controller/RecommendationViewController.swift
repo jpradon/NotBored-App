@@ -10,21 +10,15 @@ import Alamofire
 
 class RecommendationViewController: UIViewController {
 
-    @IBOutlet weak var activityTextField: UITextField!
+    @IBOutlet weak var activityLabelField: UILabel!
     
-    @IBOutlet weak var typeTextField: UITextField!
+    @IBOutlet weak var participantsLabelField: UILabel!
     
-    @IBOutlet weak var participantsTextField: UITextField!
+    @IBOutlet weak var priceLabelField: UILabel!
     
-    @IBOutlet weak var priceTextField: UITextField!
-    
-    @IBOutlet weak var linkTextField: UITextField!
-    
-    @IBOutlet weak var keyTextField: UITextField!
-    
-    @IBOutlet weak var accessibilityTextField: UITextField!
-    
-    
+    @IBOutlet weak var typeLabelField: UILabel!
+
+    @IBOutlet weak var typeImageField: UIImageView!
     var participante: String = ""
     var category: CategoryType = .random
     var random: Bool = false
@@ -34,27 +28,22 @@ class RecommendationViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setup()
-        
     }
     
     func setup() {
         
-
         self.title = category.rawValue
-
-        print("participante: \(participante)")
-        print("category: \(category)")
-        print("random: \(random)")
-        
         getActivityCategoryAPI(random)
 
-        let paramsManager = ParamsManager.shared
-        let price = paramsManager.params.price ?? 0
-
-        print("participants: \(paramsManager.params.participants)")
-        print("price       : \(price)")
-        print("category    : \(paramsManager.params.category)")
-        print("random      : \(paramsManager.params.random)")
+//        print("participante: \(participante)")
+//        print("category: \(category)")
+//        print("random: \(random)")
+//        let paramsManager = ParamsManager.shared
+//        let price = paramsManager.params.price ?? 0
+//        print("participants: \(paramsManager.params.participants)")
+//        print("price       : \(price)")
+//        print("category    : \(paramsManager.params.category)")
+//        print("random      : \(paramsManager.params.random)")
     }
     
     func getActivityCategoryAPI(_ random: Bool) {
@@ -62,17 +51,22 @@ class RecommendationViewController: UIViewController {
         var urlAPI = "http://www.boredapi.com/api/activity"
         
         if !random {
+            typeLabelField.alpha = 0.0
+            typeImageField.alpha = 0.0
             urlAPI += "?type=\(category)"
+        } else {
+            typeLabelField.alpha = 1.1
+            typeImageField.alpha = 1.1
         }
         
-        print(urlAPI)
+//        print(urlAPI)
         AF.request(urlAPI).response { [self] response in
             print ("La respuesta del servicio es:")
             
             debugPrint(response)
             
-            if let error = response.error {
-                print("*** Error API: \(response.error)")
+            if response.error != nil {
+                print("*** Error API: \(String(describing: response.error))")
                 return
             }
             
@@ -84,20 +78,30 @@ class RecommendationViewController: UIViewController {
             do {
                 let activity = try JSONDecoder().decode(Activity.self, from: data)
                 print("*** resultado ***\n")
-                activityTextField.text = activity.activity
-                typeTextField.text = activity.type
-                participantsTextField.text = String(activity.participants)
-                priceTextField.text = String(activity.price)
-                linkTextField.text = activity.link
-                keyTextField.text = activity.key
-                accessibilityTextField.text = String(activity.accessibility)
-        
+                activityLabelField.text = activity.activity
+                typeLabelField.text = CategoryType.withLabel(activity.type)?.rawValue
+                participantsLabelField.text = String(activity.participants)
+                let price: Double = Double(activity.price)
+                if price == 0.0 {
+                    priceLabelField.text = PriceType.free.rawValue
+                } else if price > 0.0 && price <= 0.3 {
+                    priceLabelField.text = PriceType.low.rawValue
+                } else if price > 3.0 && price <= 0.6 {
+                    priceLabelField.text = PriceType.medium.rawValue
+                } else {
+                    priceLabelField.text = PriceType.high.rawValue
+                }
             } catch let error {
                 print(error)
             }
         }
-    
     }
+    
+    
+    @IBAction func onTapTryAnother(_ sender: Any) {
+        getActivityCategoryAPI(random)
+    }
+    
 
     /*
     // MARK: - Navigation
