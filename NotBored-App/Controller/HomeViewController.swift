@@ -9,11 +9,25 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var participantesTextField: UITextField!
+    
+    @IBOutlet weak var startButtonField: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setUp()
+    }
+    
+    func setUp(){
         
+        // Se establecen las propiedades del boton y de deja deshabilitado
+        startButtonField.backgroundColor = .orange
+        startButtonField.setTitleColor(.white, for: .normal)
+        startButtonField.backgroundColor = .gray
+        startButtonField.isEnabled = false
         let boolValue = UserDefaults.standard.bool(forKey: "checkTerm")
         print("boolValue: \(boolValue)")
         
@@ -39,20 +53,53 @@ class HomeViewController: UIViewController {
         }
         
         UserDefaults.standard.set(true, forKey: "checkTerm")
-        
-        
-            
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func participantesTextsChanged(_ sender: Any) {
+        
+        //Esta funcion se ejecuta cuando el textfield tenga cambios en su contenido
+        print("ingrese validacion  de participantes")
+        print(participantesTextField.text ?? "")
+        
+        let resultadoValidacion = validar(campo: participantesTextField.text ?? "")
+        print(resultadoValidacion)
+        
+        if resultadoValidacion {
+            startButtonField.isEnabled = true
+            startButtonField.backgroundColor = .orange
+        }
+        else{
+            startButtonField.backgroundColor = .gray
+            startButtonField.isEnabled = false
+        }
     }
-    */
+    
+    func validarSiEsNumerico(campo:String) -> Bool {
+        return Double(campo) != nil
+    }
+    
+    func EsMenorAUno(x:Int) -> Bool{
+        if x < 1{
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    
+    func validar(campo:String) -> Bool{
+        
+        if self.validarSiEsNumerico(campo: campo){
+            let valor = Int(campo) ?? 0
+            if self.EsMenorAUno(x: valor){
+                return false
+            }
+            else{
+                return true
+            }
+        }
+        return false
+    }
 
 }
+
