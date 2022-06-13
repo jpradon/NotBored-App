@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CategoryType: String {
+enum CategoryType: String, CaseIterable {
     
     case random = "Aleatorio",
          education = "Educación",
@@ -20,4 +20,7 @@ enum CategoryType: String {
          music = "Música",
          busywork = "Trabajo"
     
+    static func withLabel(_ label: String) -> CategoryType? {
+            return self.allCases.first{ "\($0)" == label }
+        }
 }
