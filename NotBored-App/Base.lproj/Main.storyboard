@@ -346,12 +346,14 @@
                                                     <buttonConfiguration key="configuration" style="plain" image="greaterthan" catalog="system">
                                                         <color key="baseForegroundColor" systemColor="labelColor"/>
                                                     </buttonConfiguration>
+                                                    <connections>
+                                                        <segue destination="tKO-KX-7Io" kind="show" identifier="segueActivitySelToRecommendationCategory" id="xbp-mV-glE"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="activityLabel" destination="M7Y-zD-HEd" id="ytI-Lf-KY5"/>
-                                            <segue destination="tKO-KX-7Io" kind="show" identifier="segueActivitySelToRecommendationCategory" id="Vxm-S8-so7"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -474,7 +476,7 @@ Nisl pulvinar taciti tellus diam quam dictum cursus potenti euismod natoquefeugi
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bud-K0-laF"/>
+        <segue reference="39K-Ht-yNd"/>
         <segue reference="s4d-ij-qGW"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemFillColor"/>

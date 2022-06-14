@@ -64,7 +64,18 @@ class HomeViewController: UIViewController {
         else{
             startButtonField.backgroundColor = .gray
             startButtonField.isEnabled = false
+            
+            mensajeAlertaValidacion("Ingrese un número de partipantes válidos")
         }
+    }
+    
+    func mensajeAlertaValidacion(_ mensaje: String) {
+        // create the alert
+        let alert = UIAlertController(title: "Validación", message: mensaje, preferredStyle: .alert)
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
     
     func validarSiEsNumerico(campo:String) -> Bool {

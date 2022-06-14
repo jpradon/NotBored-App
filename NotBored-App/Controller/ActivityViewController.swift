@@ -70,7 +70,7 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
             if let controllerRecomendation = segue.destination as? RecommendationViewController {
                 controllerRecomendation.participante = participante
                 controllerRecomendation.random = false
-                controllerRecomendation.category = .education
+                controllerRecomendation.category = CategoryType.withLabel(categorySelected) ?? .none
             }
         case "segueActivityToRecommendationRandom":
             print("segueActivityToRecommendationRandom")

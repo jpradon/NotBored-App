@@ -106,6 +106,7 @@ class RecommendationViewController: UIViewController {
                     priceLabelField.text = PriceType.high.rawValue
                 }
             } catch let error {
+                mensajeAlertaValidacion("No se encontró información para la consulta realizada")
                 print(error)
             }
         }
