@@ -44,7 +44,7 @@
                                     </attributedString>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="U2G-Ux-lws" kind="show" id="qW2-El-kxM"/>
+                                    <segue destination="U2G-Ux-lws" kind="show" identifier="segueHomeToActivity" id="qW2-El-kxM"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6UE-Gw-zLl">
@@ -475,7 +475,8 @@ Nisl pulvinar taciti tellus diam quam dictum cursus potenti euismod natoquefeugi
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Vxm-S8-so7"/>
+        <segue reference="Wfr-0B-tFt"/>
+        <segue reference="bud-K0-laF"/>
         <segue reference="s4d-ij-qGW"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemFillColor"/>

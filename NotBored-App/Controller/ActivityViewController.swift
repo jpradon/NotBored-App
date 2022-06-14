@@ -8,15 +8,16 @@
 import UIKit
 
 class ActivityViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
-    
-    
+
     var categorySelected: String = ""
-    
+    var participante: String = ""
+
     @IBOutlet weak var activityTableView: UITableView!
     
     var activityList = ["education", "recreational","social","diy","charity","cooking", "relaxation", "music", "busywork"]
     
     override func viewDidLoad() {
+
         super.viewDidLoad()
         
         activityTableView.dataSource = self
@@ -51,39 +52,42 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         categorySelected = activityList[indexPath.row]
+       
+        performSegue(withIdentifier: "segueActivitySelToRecommendationCategory",
+                     sender: categorySelected)
+        //tableView.deselectRow(at: indexPath, animated: true)
         print ("Categoria Seleccionada: \(categorySelected)")
     }
-    
-    
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-      //  print (segue.identifier)
+       print (segue.identifier)
+        print(participante)
         switch segue.identifier {
         case "segueActivityToRecommendationCategory":
             print("segueActivityToRecommendationCategory")
             if let controllerRecomendation = segue.destination as? RecommendationViewController {
-                controllerRecomendation.participante = "20"
+                controllerRecomendation.participante = participante
                 controllerRecomendation.random = false
                 controllerRecomendation.category = .education
             }
         case "segueActivityToRecommendationRandom":
             print("segueActivityToRecommendationRandom")
             if let controllerRecomendation = segue.destination as? RecommendationViewController {
-                controllerRecomendation.participante = "20"
+                controllerRecomendation.participante = participante
                 controllerRecomendation.random = true
                 controllerRecomendation.category = .random
                
             }
         case "segueActivitySelToRecommendationCategory":
-            print("segueActivitySelToRecommendationCategory")
-            print(categorySelected)
-            if let controllerRecomendation = segue.destination as? RecommendationViewController {
-                controllerRecomendation.participante = "20"
-                controllerRecomendation.random = false
-                controllerRecomendation.category = CategoryType.withLabel(categorySelected) ?? .none
-            }
+                print("segueActivitySelToRecommendationCategory")
+                if let controllerRecomendation = segue.destination as? RecommendationViewController, let categoria = sender as? String {
+                    controllerRecomendation.participante = participante
+                    controllerRecomendation.random = false
+                    controllerRecomendation.category = CategoryType.withLabel(categoria) ?? .none
+                   // controllerRecomendation.category = CategoryType.withLabel(categorySelected) ?? .none
+                }
         default:
             print("segue no identificado")
         }
