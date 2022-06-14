@@ -16,6 +16,7 @@
 		864089B72853014600AB4EE6 /* Params.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864089B62853014600AB4EE6 /* Params.swift */; };
 		864089B92856F63000AB4EE6 /* PriceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864089B82856F62F00AB4EE6 /* PriceType.swift */; };
 		864089BB2857E83B00AB4EE6 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864089BA2857E83A00AB4EE6 /* ActivityViewController.swift */; };
+		864089BE2858084600AB4EE6 /* BasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864089BD2858084600AB4EE6 /* BasicTableViewCell.swift */; };
 		86D7A9662851496800D8826F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D7A9652851496800D8826F /* AppDelegate.swift */; };
 		86D7A9682851496800D8826F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D7A9672851496800D8826F /* SceneDelegate.swift */; };
 		86D7A96A2851496800D8826F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86D7A9692851496800D8826F /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 		864089B62853014600AB4EE6 /* Params.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Params.swift; sourceTree = "<group>"; };
 		864089B82856F62F00AB4EE6 /* PriceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceType.swift; sourceTree = "<group>"; };
 		864089BA2857E83A00AB4EE6 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		864089BD2858084600AB4EE6 /* BasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableViewCell.swift; sourceTree = "<group>"; };
 		86D7A9622851496800D8826F /* NotBored-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NotBored-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		86D7A9652851496800D8826F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86D7A9672851496800D8826F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,14 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		864089BC2858080300AB4EE6 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				864089BD2858084600AB4EE6 /* BasicTableViewCell.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		86D7A9592851496800D8826F = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +127,7 @@
 		86D7A9642851496800D8826F /* NotBored-App */ = {
 			isa = PBXGroup;
 			children = (
+				864089BC2858080300AB4EE6 /* UI */,
 				864089B12852325100AB4EE6 /* Enum */,
 				864089AA28522DAF00AB4EE6 /* Model */,
 				864089A928522D9B00AB4EE6 /* Manager */,
@@ -271,6 +282,7 @@
 				86D7A98728515EE700D8826F /* RecommendationViewController.swift in Sources */,
 				864089B92856F63000AB4EE6 /* PriceType.swift in Sources */,
 				86D7A9662851496800D8826F /* AppDelegate.swift in Sources */,
+				864089BE2858084600AB4EE6 /* BasicTableViewCell.swift in Sources */,
 				864089B52852A5EF00AB4EE6 /* HomeViewController.swift in Sources */,
 				864089BB2857E83B00AB4EE6 /* ActivityViewController.swift in Sources */,
 				864089B3285232AC00AB4EE6 /* CategoryType.swift in Sources */,

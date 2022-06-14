@@ -322,24 +322,66 @@
                                     <segue destination="tKO-KX-7Io" kind="push" identifier="segueActivityToRecommendationCategory" id="39K-Ht-yNd"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="m4H-HG-waj">
+                                <rect key="frame" x="20" y="180.5" width="374" height="621.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="rowActivityCell" id="cPo-hf-kag" customClass="BasicTableViewCell" customModule="NotBored_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cPo-hf-kag" id="Pw7-55-ahH">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Actividad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M7Y-zD-HEd">
+                                                    <rect key="frame" x="20" y="11" width="200" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3R-Xk-X8r">
+                                                    <rect key="frame" x="301" y="6" width="41" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="greaterthan" catalog="system">
+                                                        <color key="baseForegroundColor" systemColor="labelColor"/>
+                                                    </buttonConfiguration>
+                                                </button>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="activityLabel" destination="M7Y-zD-HEd" id="ytI-Lf-KY5"/>
+                                            <segue destination="tKO-KX-7Io" kind="show" identifier="segueActivitySelToRecommendationCategory" id="Vxm-S8-so7"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EPq-h6-RJI"/>
                         <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="EPq-h6-RJI" firstAttribute="bottom" secondItem="m4H-HG-waj" secondAttribute="bottom" constant="40" id="974-8O-Ksq"/>
                             <constraint firstItem="e74-7r-5V1" firstAttribute="top" secondItem="EPq-h6-RJI" secondAttribute="top" constant="10" id="By0-6L-VeL"/>
                             <constraint firstItem="ucP-kc-8Mc" firstAttribute="top" secondItem="e74-7r-5V1" secondAttribute="bottom" constant="20" id="D7v-Nc-fok"/>
                             <constraint firstItem="ucP-kc-8Mc" firstAttribute="centerX" secondItem="e74-7r-5V1" secondAttribute="centerX" id="IRN-IG-WMN"/>
                             <constraint firstItem="QmP-eQ-Xiu" firstAttribute="top" secondItem="gQ5-pe-fKU" secondAttribute="topMargin" constant="10" id="Kvg-jq-zcV"/>
                             <constraint firstItem="EPq-h6-RJI" firstAttribute="trailing" secondItem="ucP-kc-8Mc" secondAttribute="trailing" constant="20.5" id="Wqr-im-cB7"/>
                             <constraint firstItem="QmP-eQ-Xiu" firstAttribute="leading" secondItem="EPq-h6-RJI" secondAttribute="leading" constant="20" id="alb-DV-7vB"/>
+                            <constraint firstItem="m4H-HG-waj" firstAttribute="top" secondItem="QmP-eQ-Xiu" secondAttribute="bottom" constant="90" id="fzi-XX-b0l"/>
+                            <constraint firstItem="EPq-h6-RJI" firstAttribute="trailing" secondItem="m4H-HG-waj" secondAttribute="trailing" constant="20" id="mJU-Lv-ylm"/>
+                            <constraint firstItem="m4H-HG-waj" firstAttribute="leading" secondItem="EPq-h6-RJI" secondAttribute="leading" constant="20" id="o6O-Qx-rfI"/>
                             <constraint firstItem="EPq-h6-RJI" firstAttribute="trailing" secondItem="e74-7r-5V1" secondAttribute="trailing" constant="20" id="vSi-iL-fIV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Nz6-LR-icc"/>
+                    <connections>
+                        <outlet property="activityTableView" destination="m4H-HG-waj" id="pCa-87-S0z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8gi-uY-l8f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="274" y="57"/>
+            <point key="canvasLocation" x="273.91304347826087" y="56.919642857142854"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="3wA-eY-AI1">
@@ -433,13 +475,14 @@ Nisl pulvinar taciti tellus diam quam dictum cursus potenti euismod natoquefeugi
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="bud-K0-laF"/>
+        <segue reference="Vxm-S8-so7"/>
         <segue reference="s4d-ij-qGW"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemFillColor"/>
     <resources>
         <image name="BoredPanda" width="500" height="282"/>
         <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
+        <image name="greaterthan" catalog="system" width="128" height="111"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="rectangle.portrait.and.arrow.right.fill" catalog="system" width="128" height="108"/>
@@ -451,6 +494,9 @@ Nisl pulvinar taciti tellus diam quam dictum cursus potenti euismod natoquefeugi
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">

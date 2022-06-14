@@ -7,14 +7,55 @@
 
 import UIKit
 
-class ActivityViewController: UIViewController {
+class ActivityViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     
+    
+    var categorySelected: String = ""
+    
+    @IBOutlet weak var activityTableView: UITableView!
+    
+    var activityList = ["education", "recreational","social","diy","charity","cooking", "relaxation", "music", "busywork"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityTableView.dataSource = self
+        activityTableView.delegate = self
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        activityTableView.reloadData()
+        print("DidAppear")
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return activityList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let plantillaCelda:BasicTableViewCell = activityTableView.dequeueReusableCell(withIdentifier: "rowActivityCell", for: indexPath) as! BasicTableViewCell
+        
+        
+        let actvyList = activityList
+        
+        let actvyObject = actvyList[indexPath.row]
+        
+        plantillaCelda.activityLabel.text = actvyObject
+        
+        return plantillaCelda
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        categorySelected = activityList[indexPath.row]
+        print ("Categoria Seleccionada: \(categorySelected)")
+    }
+    
+    
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -34,6 +75,14 @@ class ActivityViewController: UIViewController {
                 controllerRecomendation.random = true
                 controllerRecomendation.category = .random
                
+            }
+        case "segueActivitySelToRecommendationCategory":
+            print("segueActivitySelToRecommendationCategory")
+            print(categorySelected)
+            if let controllerRecomendation = segue.destination as? RecommendationViewController {
+                controllerRecomendation.participante = "20"
+                controllerRecomendation.random = false
+                controllerRecomendation.category = CategoryType.withLabel(categorySelected) ?? .none
             }
         default:
             print("segue no identificado")
