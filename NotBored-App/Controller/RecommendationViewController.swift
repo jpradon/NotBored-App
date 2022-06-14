@@ -19,6 +19,7 @@ class RecommendationViewController: UIViewController {
     @IBOutlet weak var typeLabelField: UILabel!
 
     @IBOutlet weak var typeImageField: UIImageView!
+    
     var participante: String = ""
     var category: CategoryType = .random
     var random: Bool = false
@@ -48,18 +49,31 @@ class RecommendationViewController: UIViewController {
     
     func getActivityCategoryAPI(_ random: Bool) {
         
+        
         var urlAPI = "http://www.boredapi.com/api/activity"
+        
+        var primerElemento: Bool = false
         
         if !random {
             typeLabelField.alpha = 0.0
             typeImageField.alpha = 0.0
             urlAPI += "?type=\(category)"
+            primerElemento=true
         } else {
             typeLabelField.alpha = 1.1
             typeImageField.alpha = 1.1
         }
         
-//        print(urlAPI)
+        if (!participante.isEmpty) {
+            
+            if (primerElemento) {
+                urlAPI += "&participants=\(participante)"
+            } else {
+                urlAPI += "?participants=\(participante)"
+            }
+        }
+        
+        print(urlAPI)
         AF.request(urlAPI).response { [self] response in
             print ("La respuesta del servicio es:")
             
@@ -97,6 +111,14 @@ class RecommendationViewController: UIViewController {
         }
     }
     
+    func mensajeAlertaValidacion(_ mensaje: String) {
+        // create the alert
+        let alert = UIAlertController(title: "Validación", message: mensaje, preferredStyle: .alert)
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
     
     @IBAction func onTapTryAnother(_ sender: Any) {
         getActivityCategoryAPI(random)
