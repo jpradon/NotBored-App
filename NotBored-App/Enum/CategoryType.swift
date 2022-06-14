@@ -10,6 +10,7 @@ import Foundation
 enum CategoryType: String, CaseIterable {
     
     case random = "Aleatorio",
+         none = "Ninguno",
          education = "Educación",
          recreational = "Recreacional",
          social = "Social",
