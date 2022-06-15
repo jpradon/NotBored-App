@@ -7,27 +7,45 @@
 
 import UIKit
 
+struct Actividad {
+    let nombre: String
+    let imagen: String
+}
+
+var activityList = [
+    Actividad(nombre: "education", imagen: "book"),
+    Actividad(nombre: "recreational", imagen: "gamecontroller"),
+    Actividad(nombre: "social", imagen: "person.3"),
+    Actividad(nombre: "diy", imagen: "wrench"),
+    Actividad(nombre: "charity", imagen: "dollarsign.square"),
+    Actividad(nombre: "cooking", imagen: "fork.knife"),
+    Actividad(nombre: "relaxation", imagen: "bed.double"),
+    Actividad(nombre: "music", imagen: "headphones"),
+    Actividad(nombre: "busywork", imagen: "macpro.gen1"),
+]
+
+
 class ActivityViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
 
     var categorySelected: String = ""
     var participante: String = ""
 
     @IBOutlet weak var activityTableView: UITableView!
-    
-    var activityList = ["education", "recreational","social","diy","charity","cooking", "relaxation", "music", "busywork"]
+
     
     override func viewDidLoad() {
 
         super.viewDidLoad()
-        
         activityTableView.dataSource = self
         activityTableView.delegate = self
+        activityTableView.backgroundColor = .clear
+        activityTableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
 
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        //super.viewDidAppear(animated)
         activityTableView.reloadData()
         print("DidAppear")
     }
@@ -37,21 +55,29 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //let plantillaCelda:BasicTableViewCell = activityTableView.dequeueReusableCell(withIdentifier: "rowActivityCell", for: indexPath) as! BasicTableViewCell
+        let plantillaCelda = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         
-        let plantillaCelda:BasicTableViewCell = activityTableView.dequeueReusableCell(withIdentifier: "rowActivityCell", for: indexPath) as! BasicTableViewCell
+        //let actvyList = activityList
+        
+        let actvyObject = activityList[indexPath.row]
         
         
-        let actvyList = activityList
+        var listContentConfiguration = UIListContentConfiguration.cell()
+        listContentConfiguration.text = actvyObject.nombre
+        listContentConfiguration.image = UIImage(systemName: actvyObject.imagen)
+        //plantillaCelda.activityLabel.text = actvyObject
         
-        let actvyObject = actvyList[indexPath.row]
-        
-        plantillaCelda.activityLabel.text = actvyObject
+        plantillaCelda.contentConfiguration = listContentConfiguration
+        plantillaCelda.backgroundColor = .clear
+        plantillaCelda.tintColor = .white
+        plantillaCelda.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
         
         return plantillaCelda
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        categorySelected = activityList[indexPath.row]
+        categorySelected = activityList[indexPath.row].nombre
        
         performSegue(withIdentifier: "segueActivitySelToRecommendationCategory",
                      sender: categorySelected)
