@@ -40,6 +40,9 @@ class ActivityViewController: UIViewController, UITableViewDataSource, UITableVi
         activityTableView.delegate = self
         activityTableView.backgroundColor = .clear
         activityTableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+        
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.barTintColor = .white
 
         // Do any additional setup after loading the view.
     }
